@@ -70,10 +70,13 @@ render();
 document.addEventListener('click', function () {
     // store.dispatch({ type: '增加' });
     const pushToHome = () => (dispatch, getState) => {
+        console.log(dispatch);
+        debugger
+        dispatch({ type: '增加' })
         // console.log('pushToHome');
         // console.log(dispatch);
         // console.log(getState);
-        store.dispatch({ type: '增加' })
+        // store.dispatch({ type: '增加' })
         //   const state = getState();
         //   let home = state.dashboard.menus[0];
         //   if (home) home = home.path;
@@ -81,6 +84,7 @@ document.addEventListener('click', function () {
         //     dispatch(push(home));
         //   }
     };
+    // pushToHome()()
     store.dispatch(pushToHome());
     // export const pushToHome = () => (dispatch, getState) => {
     //   const state = getState();
@@ -103,5 +107,4 @@ document.addEventListener('click', function () {
 // console.log(store.getState());
 // store.dispatch({ type: '减少' });
 // console.log(store.getState());
-
 

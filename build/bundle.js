@@ -441,6 +441,7 @@ var ActionTypes = {
    * return something else (for example, a Promise you can await).
    */
   function dispatch(action) {
+    console.log('dispatch1');
     if (!Object(__WEBPACK_IMPORTED_MODULE_0_lodash_es_isPlainObject__["a" /* default */])(action)) {
       throw new Error('Actions must be plain objects. ' + 'Use custom middleware for async actions.');
     }
@@ -1026,10 +1027,13 @@ document.addEventListener('click', function () {
     // store.dispatch({ type: '增加' });
     var pushToHome = function pushToHome() {
         return function (dispatch, getState) {
+            console.log(dispatch);
+            debugger;
+            dispatch({ type: '增加' });
             // console.log('pushToHome');
             // console.log(dispatch);
             // console.log(getState);
-            store.dispatch({ type: '增加' });
+            // store.dispatch({ type: '增加' })
             //   const state = getState();
             //   let home = state.dashboard.menus[0];
             //   if (home) home = home.path;
@@ -1038,6 +1042,7 @@ document.addEventListener('click', function () {
             //   }
         };
     };
+    // pushToHome()()
     store.dispatch(pushToHome());
     // export const pushToHome = () => (dispatch, getState) => {
     //   const state = getState();
@@ -1667,6 +1672,7 @@ function applyMiddleware() {
       var middlewareAPI = {
         getState: store.getState,
         dispatch: function dispatch(action) {
+          debugger
           return _dispatch(action);
         }
       };
